@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/vendors/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/vendors/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="随时杂记," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="10. 下面的代码输出什么？为什么？123456789101112#include &quot;stdio.h&quot;int main(int argc, char *argv[])&amp;#123;	unsigned int a = 10;	int b = -20;	if (a + b &amp;gt; 0)&amp;#123;		printf(&quot;a + b = %d\n&quot;,a + b);	&amp;#125; else&amp;#123;		pr">
+<meta name="keywords" content="随时杂记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux兴趣小组的面试题的问题">
+<meta property="og:url" content="http://yoursite.com/2017/04/20/Linux兴趣小组的面试题的问题/index.html">
+<meta property="og:site_name" content="采茶记">
+<meta property="og:description" content="10. 下面的代码输出什么？为什么？123456789101112#include &quot;stdio.h&quot;int main(int argc, char *argv[])&amp;#123;	unsigned int a = 10;	int b = -20;	if (a + b &amp;gt; 0)&amp;#123;		printf(&quot;a + b = %d\n&quot;,a + b);	&amp;#125; else&amp;#123;		pr">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://okt3vzszu.bkt.clouddn.com/Linux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E9%97%AE%E9%A2%98.jpg">
+<meta property="og:image" content="http://okt3vzszu.bkt.clouddn.com/Linux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84%E9%9D%A2%E8%AF%95%E7%9A%84%E9%97%AE%E9%A2%98%E5%90%8E%E7%BB%AD.jpg">
+<meta property="og:image" content="http://okt3vzszu.bkt.clouddn.com/Linux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84%E9%9D%A2%E8%AF%95%E7%9A%84%E9%97%AE%E9%A2%98%E5%90%8E%E7%BB%AD%EF%BC%8811%EF%BC%89.jpg">
+<meta property="og:image" content="http://okt3vzszu.bkt.clouddn.com/Linux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8811%EF%BC%89.jpg">
+<meta property="og:image" content="http://okt3vzszu.bkt.clouddn.com/Linux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84%E9%9D%A2%E8%AF%95%E7%9A%84%E9%97%AE%E9%A2%98%E6%9C%80%E5%90%8E%EF%BC%8811%EF%BC%89.jpg">
+<meta property="og:image" content="http://okt3vzszu.bkt.clouddn.com/stderr%E5%9C%A8linux%E4%B8%8B.jpg">
+<meta property="og:image" content="http://okt3vzszu.bkt.clouddn.com/stderr%E5%9C%A8windows%E4%B8%8B.jpg">
+<meta property="og:image" content="http://okt3vzszu.bkt.clouddn.com/Inter%E9%9D%A2%E8%AF%95%E9%A2%98linux.jpg">
+<meta property="og:image" content="http://okt3vzszu.bkt.clouddn.com/Inter%E9%9D%A2%E8%AF%95%E9%A2%98windows.jpg">
+<meta property="og:image" content="http://okt3vzszu.bkt.clouddn.com/stderr%E4%B8%8Estdout%E7%AE%A1%E9%81%93%E6%AF%94%E8%BE%83.jpg">
+<meta property="og:image" content="http://okt3vzszu.bkt.clouddn.com/Linux%E9%9D%A2%E8%AF%95%E9%A2%9813.jpg">
+<meta property="og:updated_time" content="2017-10-25T12:18:10.502Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux兴趣小组的面试题的问题">
+<meta name="twitter:description" content="10. 下面的代码输出什么？为什么？123456789101112#include &quot;stdio.h&quot;int main(int argc, char *argv[])&amp;#123;	unsigned int a = 10;	int b = -20;	if (a + b &amp;gt; 0)&amp;#123;		printf(&quot;a + b = %d\n&quot;,a + b);	&amp;#125; else&amp;#123;		pr">
+<meta name="twitter:image" content="http://okt3vzszu.bkt.clouddn.com/Linux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E9%97%AE%E9%A2%98.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/20/Linux兴趣小组的面试题的问题/"/>
+
+
+
+
+
+  <title>Linux兴趣小组的面试题的问题 | 采茶记</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">采茶记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/20/Linux兴趣小组的面试题的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chalan630">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://okt3vzszu.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="采茶记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux兴趣小组的面试题的问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T20:46:20+08:00">
+                2017-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,007
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="10-下面的代码输出什么？为什么？"><a href="#10-下面的代码输出什么？为什么？" class="headerlink" title="10. 下面的代码输出什么？为什么？"></a>10. 下面的代码输出什么？为什么？</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">int</span> b = <span class="number">-20</span>;</span><br><span class="line">	<span class="keyword">if</span> (a + b &gt; <span class="number">0</span>)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"a + b = %d\n"</span>,a + b);</span><br><span class="line">	&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"a = %d b = %d\n"</span>,a,b);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果为：<br><img src="http://okt3vzszu.bkt.clouddn.com/Linux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E9%97%AE%E9%A2%98.jpg" alt="(10)运行截图"><br>原因：<br>        <strong>当int和unsigned int相加时，要将int转化为unsigned int</strong>，而int小于0，所以它的最高位是符号位，为1，所以转化的结果是一个很大的正数。<br>在第一个if语句中，是两个“正数”相加，结果自然就大于0了。<br>最后输出时<code>%d</code>按照正常有正负的二进制转十进制输出。<br><img src="http://okt3vzszu.bkt.clouddn.com/Linux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84%E9%9D%A2%E8%AF%95%E7%9A%84%E9%97%AE%E9%A2%98%E5%90%8E%E7%BB%AD.jpg" alt="(10)单步跟踪"></p>
+<h2 id="11-以下程序运行结果是什么？"><a href="#11-以下程序运行结果是什么？" class="headerlink" title="11. 以下程序运行结果是什么？"></a>11. 以下程序运行结果是什么？</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> nums[<span class="number">5</span>] = &#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>,&#125;;</span><br><span class="line">	<span class="keyword">int</span> *ptr = (<span class="keyword">int</span> *)(&amp;nums + <span class="number">1</span>);</span><br><span class="line"><span class="comment">//	int *ptr = (int *)(nums + 1);</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d, %d\n"</span>,*(nums + <span class="number">1</span>),*(ptr - <span class="number">1</span>));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行结果为：<img src="http://okt3vzszu.bkt.clouddn.com/Linux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84%E9%9D%A2%E8%AF%95%E7%9A%84%E9%97%AE%E9%A2%98%E5%90%8E%E7%BB%AD%EF%BC%8811%EF%BC%89.jpg" alt="此处输入图片的描述"><br>上面为执行第4行程序的截图<br>下面为执行第5行程序的截图<br>为什么会不一样？<br>原因：<img src="http://okt3vzszu.bkt.clouddn.com/Linux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8811%EF%BC%89.jpg" alt="(11)详细数据"><br><code>(&amp;nums + 1)</code>中<code>&amp;nums</code>是一个数组指针<code>int((*)[5])</code><br><code>(&amp;nums + 1)</code>指向二维数组第二行第一个<br>如下图<br><img src="http://okt3vzszu.bkt.clouddn.com/Linux%E5%85%B4%E8%B6%A3%E5%B0%8F%E7%BB%84%E9%9D%A2%E8%AF%95%E7%9A%84%E9%97%AE%E9%A2%98%E6%9C%80%E5%90%8E%EF%BC%8811%EF%BC%89.jpg" alt="数组"></p>
+<blockquote>
+<p>注：不是数组在内存中的真实分布</p>
+</blockquote>
+<h2 id="12-对比下面程序在Linux和Windows下输出的差异，并思考结果。"><a href="#12-对比下面程序在Linux和Windows下输出的差异，并思考结果。" class="headerlink" title="12. 对比下面程序在Linux和Windows下输出的差异，并思考结果。"></a>12. 对比下面程序在Linux和Windows下输出的差异，并思考结果。</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stdout</span>, <span class="string">"Group "</span> );</span><br><span class="line">		<span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"XiyouLinux"</span> );</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>Linux下的运行结果<br><img src="http://okt3vzszu.bkt.clouddn.com/stderr%E5%9C%A8linux%E4%B8%8B.jpg" alt="Linux"><br>Windows下的运行结果<br><img src="http://okt3vzszu.bkt.clouddn.com/stderr%E5%9C%A8windows%E4%B8%8B.jpg" alt="Windows"></p>
+<pre><code>为何在linux系统中Group和XiyouLinux是分开输出的，而在windows下却是同时输出的？
+</code></pre><p>在百度的过程中我找到了一道有意思的同类型的题。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span>  <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stdout</span>,<span class="string">"Hello "</span>);</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"World!"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行结果：<br>Linux下的运行结果：<br><img src="http://okt3vzszu.bkt.clouddn.com/Inter%E9%9D%A2%E8%AF%95%E9%A2%98linux.jpg" alt="linux"><br>windows下的运行结果：<br><img src="http://okt3vzszu.bkt.clouddn.com/Inter%E9%9D%A2%E8%AF%95%E9%A2%98windows.jpg" alt="Windows"></p>
+<h3 id="求解过程"><a href="#求解过程" class="headerlink" title="求解过程"></a>求解过程</h3><p>看到运行结果不同，于是我百度了<code>stdout</code> <code>stdin</code>与<code>stderr</code>的相关问题，得到了以下答案：</p>
+<blockquote>
+<p>stdout, stdin, stderr的中文名字分别是标准输出，标准输入和标准错误。<br>当一个用户进程被创建的时候，系统会自动为该进程创建三个数据流，也就是题目中所提到的这三个。那么什么是数据流呢（stream）？我们知道，一个程序要运行，需要有输入、输出，如果出错，还要能表现出自身的错误。这是就要从某个地方读入数据、将数据输出到某个地方，这就够成了数据流。<br>因此，一个进程初期所拥有的这么三个数据流，就分别是标准输出、标准输入和标准错误，分别用stdout, stdin, stderr来表示。</p>
+</blockquote>
+<p>上面这两个问题的根本在于：不同操作系统下<code>stderr</code>与<code>stdout</code>的输出方式不同。<br>　　<code>stdout</code>是行缓冲的，他的输出会放在缓冲区中，只有到换行或缓冲区满的时候，才会输出到屏幕。<br>　　<code>stderr</code>是无缓冲的，会直接输出。<br>举例来说就是<code>fprintf(stdout, &quot;xxxx&quot;)</code>会缓存，直到遇到新行才会一起输出。<br><code>fprintf(stderr, &quot;xxxxx&quot;)</code>不管有么有\n，都输出。<br>两者默认向屏幕输出。<br>但如果用转向标准输出到文件，则可看出两者区别。<code>stdout</code>输出到磁盘文件，<code>stderr</code>在屏幕。<br><img src="http://okt3vzszu.bkt.clouddn.com/stderr%E4%B8%8Estdout%E7%AE%A1%E9%81%93%E6%AF%94%E8%BE%83.jpg" alt="管道"></p>
+<h2 id="13-观察程序的运行结果，说明出现这种情况的原因。"><a href="#13-观察程序的运行结果，说明出现这种情况的原因。" class="headerlink" title="13. 观察程序的运行结果，说明出现这种情况的原因。"></a>13. 观察程序的运行结果，说明出现这种情况的原因。</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> str[<span class="number">512</span>];</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">512</span>; ++i)&#123;</span><br><span class="line">		str[i]= - <span class="number">1</span> - i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lu\n"</span>, <span class="built_in">strlen</span>(str));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br><img src="http://okt3vzszu.bkt.clouddn.com/Linux%E9%9D%A2%E8%AF%95%E9%A2%9813.jpg" alt="Linux面试题13"><br><strong>原因:</strong><br>    第三行定义了一个字符数组，并在第六行将一个整型存入数组。其本质为将<strong>无符号</strong>整型的<code>ascii</code>表对应字符存入字符数组。<br>第六行 -1 在二进制中为全1， 二进制 11111111 无符号整型表示为 255<br>11111111 - 1 = 11111110<br>11111110 无符号整型表示为 254。<br>······<br>当运行254次时 下一个要存入的是 0<br><code>ascii</code>表对应字符<code>\0</code>为终止字符。<br>所以<code>strlen(str) == 255</code></p>
+
+      
+    </div>
+    
+    
+    
+
+      <div>
+          
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+          
+      </div>
+
+      <div>
+          
+              
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2017/04/20/Linux兴趣小组的面试题的问题/">Linux兴趣小组的面试题的问题</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 chalan630 的个人博客">chalan630</a></p>
+  <p><span>发布时间:</span>2017年04月20日 - 20:04</p>
+  <p><span>最后更新:</span>2017年10月25日 - 20:10</p>
+  <p><span>原始链接:</span><a href="/2017/04/20/Linux兴趣小组的面试题的问题/" title="Linux兴趣小组的面试题的问题">http://yoursite.com/2017/04/20/Linux兴趣小组的面试题的问题/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2017/04/20/Linux兴趣小组的面试题的问题/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+          
+      </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/随时杂记/" rel="tag"><i class="fa fa-tag"></i> 随时杂记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/30/建站风雨路/" rel="next" title="建站风雨路">
+                <i class="fa fa-chevron-left"></i> 建站风雨路
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/29/使用机器人接管微信(自动回复)/" rel="prev" title="使用机器人接管微信(自动回复)">
+                使用机器人接管微信(自动回复) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://okt3vzszu.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg"
+                alt="chalan630" />
+            
+              <p class="site-author-name" itemprop="name">chalan630</p>
+              <p class="site-description motion-element" itemprop="description">年轻人不要老熬夜</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chalan630" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:18220724360@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-下面的代码输出什么？为什么？"><span class="nav-number">1.</span> <span class="nav-text">10. 下面的代码输出什么？为什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-以下程序运行结果是什么？"><span class="nav-number">2.</span> <span class="nav-text">11. 以下程序运行结果是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-对比下面程序在Linux和Windows下输出的差异，并思考结果。"><span class="nav-number">3.</span> <span class="nav-text">12. 对比下面程序在Linux和Windows下输出的差异，并思考结果。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#求解过程"><span class="nav-number">3.1.</span> <span class="nav-text">求解过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-观察程序的运行结果，说明出现这种情况的原因。"><span class="nav-number">4.</span> <span class="nav-text">13. 观察程序的运行结果，说明出现这种情况的原因。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chalan630</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">15.4k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
