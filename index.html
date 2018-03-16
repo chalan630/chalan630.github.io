@@ -714,79 +714,14 @@
 
       
         
-          
-            <a id="more"></a>
-<p>二话不说，直接开干</p>
-<h2 id="古典密码"><a href="#古典密码" class="headerlink" title="古典密码"></a><a href="http://www.shiyanbar.com/ctf/1870" target="_blank" rel="noopener">古典密码</a></h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>密文内容如下{79 67 85 123 67 70 84 69 76 88 79 85 89 68 69 67 84 78 71 65 72 79 72 82 78 70 73 69 78 77 125 73 79 84 65}<br>请对其进行解密<br>提示：1.加解密方法就在谜面中<br>　　　2.利用key值的固定结构<br>格式：CTF{ }</p>
-<h3 id="思考过程"><a href="#思考过程" class="headerlink" title="思考过程"></a>思考过程</h3><ol>
-<li>观察密文内容 所有数字都在<code>65</code>到<code>125</code>之间，于是猜测是ASCII码  </li>
-<li>翻译为ASCII码后出现了提示中的key值的固定结构，开始试图排列  </li>
-<li>猜测是顺序问题，粗略一看，发现没有那么简单。数了一下，一共有35个字符，猜想是分段后的排序问题  </li>
-<li>首先分成5段进行排序实验  </li>
-<li>得出flag</li>
-</ol>
-<h3 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h3><ol>
-<li>写了一个脚本，将ASCII转换为字符<br><code>密文为: OCU{CFTELXOUYDECTNGAHOHRNFIENM}IOTA</code><br>分成五行：</li>
-</ol>
-<blockquote>
-<p>OCU{CFT<br>  ELXOUYD<br>  ECTNGAH<br>  OHRNFIE<br>  NM}IOTA</p>
-</blockquote>
-<ol>
-<li>通过第一行和最后一行猜想顺序</li>
-<li>中间有一步有点问题，修改一下就可以了</li>
-</ol>
-<p>脚本：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#encoding=utf-8</span></span><br><span class="line">string = <span class="string">"79 67 85 123 67 70 84 69 76 88 79 85 89 68 69 67 84 78 71 65 72 79 72 82 78 70 73 69 78 77 125 73 79 84 65"</span></span><br><span class="line">str = <span class="string">''</span></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line">passwd = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> string.split(<span class="string">' '</span>):</span><br><span class="line">    str += chr(int(i))</span><br><span class="line">print(<span class="string">"密文为:"</span>,str)</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> i&lt;<span class="number">35</span>:</span><br><span class="line">    str2=str[i:i+<span class="number">7</span>]</span><br><span class="line">    passwd.append(str2[<span class="number">1</span>])</span><br><span class="line">    passwd.append(str2[<span class="number">6</span>])</span><br><span class="line">    passwd.append(str2[<span class="number">5</span>])</span><br><span class="line">    passwd.append(str2[<span class="number">3</span>])</span><br><span class="line">    passwd.append(str2[<span class="number">4</span>])</span><br><span class="line">    passwd.append(str2[<span class="number">0</span>])</span><br><span class="line">    passwd.append(str2[<span class="number">2</span>])</span><br><span class="line">    i+=<span class="number">7</span></span><br><span class="line"></span><br><span class="line">j = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> passwd:</span><br><span class="line">    flag+=j</span><br><span class="line"></span><br><span class="line">print(<span class="string">"明文为:"</span>,flag)</span><br></pre></td></tr></table></figure></p>
-<h2 id="神秘字母"><a href="#神秘字母" class="headerlink" title="神秘字母"></a><a href="http://www.shiyanbar.com/ctf/1892" target="_blank" rel="noopener">神秘字母</a></h2><h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h3><p>在线代的课本上出现了一堆神秘字母  </p>
-<p>dloguszijluswogany   </p>
-<p>而旁边的矩阵是  </p>
-<p>1 2<br>0 1  </p>
-<p>快找出flag吧  </p>
-<p>key格式:simCTF{}  </p>
-<h3 id="思考过程-1"><a href="#思考过程-1" class="headerlink" title="思考过程"></a>思考过程</h3><ol>
-<li>题目特征明显，虽然没有接触过这类题目，不过密文加矩阵很容易得到是希尔密码  </li>
-<li>将密文转换为两行的密文矩阵，然后将密文转换为对应的数字  </li>
-<li>矩阵乘法mod26 不断尝试  </li>
-<li>无果，便对密钥矩阵求了逆矩阵再次尝试  </li>
-</ol>
-<h3 id="具体过程-1"><a href="#具体过程-1" class="headerlink" title="具体过程"></a>具体过程</h3><p>初等变换求逆矩阵  </p>
-<ol>
-<li>首先，写出增广矩阵A|E，即矩阵A右侧放置一个同阶的单位矩阵，得到一个新矩阵。  </li>
-<li>然后进行初等行变换。  </li>
-<li>得到E|A^-1</li>
-</ol>
-<h2 id="奇怪的字符串"><a href="#奇怪的字符串" class="headerlink" title="奇怪的字符串"></a><a href="http://www.shiyanbar.com/ctf/1877" target="_blank" rel="noopener">奇怪的字符串</a></h2><h3 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h3><p>信息保密的需求和实际操作自古有之，与之相应的信息加密与解密也是历史悠久，现有一段经过古典密码理论（不止一种）加密的密文，内容如下：<br>89 51 82 109 89 50 86 122 97 71 107 61请找出这段密文隐藏的消息明文  </p>
-<h3 id="思考过程-2"><a href="#思考过程-2" class="headerlink" title="思考过程"></a>思考过程</h3><ol>
-<li>ASCII将数字转为字符</li>
-<li>字符带有明显的特征</li>
-<li>base64解码</li>
-</ol>
-<h3 id="具体过程-2"><a href="#具体过程-2" class="headerlink" title="具体过程"></a>具体过程</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#encoding=utf-8\</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line">str = <span class="string">''</span></span><br><span class="line">string = <span class="string">"89 51 82 109 89 50 86 122 97 71 107 61"</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> string.split(<span class="string">' '</span>):</span><br><span class="line">    str += chr(int(i))</span><br><span class="line">print(<span class="string">"密文为:"</span>,str)</span><br><span class="line"></span><br><span class="line">flag = base64.b64decode(str)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"明文为:"</span>,flag)</span><br></pre></td></tr></table></figure>
-<h2 id="疑惑的汉字"><a href="#疑惑的汉字" class="headerlink" title="疑惑的汉字"></a><a href="http://www.shiyanbar.com/ctf/1876" target="_blank" rel="noopener">疑惑的汉字</a></h2><h3 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h3><p>现有一段经过加密的密文，内容如下：<br>王夫 井工 夫口 由中人 井中 夫夫 由中大<br>请找出这段密文隐藏的消息明文。 </p>
-<h3 id="思考过程-3"><a href="#思考过程-3" class="headerlink" title="思考过程"></a>思考过程</h3><ol>
-<li>一脸懵逼，不知道这是什么东西，遂百度，得到的结果是当铺密码  </li>
-<li>当铺密码按照汉字的出头数来转化为数字  </li>
-<li>将数字通过ASCII转化为字符  </li>
-</ol>
-<h3 id="解题过程"><a href="#解题过程" class="headerlink" title="解题过程"></a>解题过程</h3><p>王夫 井工 夫口 由中人 井中 夫夫 由中大<br>67 84 70 123 82 77 125<br>ASCII得到flag</p>
-<h2 id="Fair-Play"><a href="#Fair-Play" class="headerlink" title="Fair-Play"></a><a href="http://www.shiyanbar.com/ctf/1852" target="_blank" rel="noopener">Fair-Play</a></h2><h3 id="题目-4"><a href="#题目-4" class="headerlink" title="题目"></a>题目</h3><p>The quick brown fox jumps over the lazy dog!<br>       ihxo{smzdodcikmodcismzd}  </p>
-<h3 id="思考过程-4"><a href="#思考过程-4" class="headerlink" title="思考过程"></a>思考过程</h3><ol>
-<li>看见题目，没有任何头绪。百度一下。</li>
-<li>发现了有一种加密方式叫playfair</li>
-<li>解密即可<a href="http://www.shiyanbar.com/ctf/writeup/508" target="_blank" rel="noopener">简单易懂的writeup</a></li>
-</ol>
-<h3 id="PlayFair"><a href="#PlayFair" class="headerlink" title="PlayFair"></a>PlayFair</h3><p>Playfair 密码（Playfair cipher or Playfair square）是一种替换密码，1854 年由英国人查尔斯·惠斯通（Charles Wheatstone）发明，基本算法如下：  </p>
-<ol>
-<li>选取一串英文字母，除去重复出现的字母，将剩下的字母逐个逐个加入 5 × 5 的矩阵内，剩下的空间由未加入的英文字母依 a-z 的顺序加入。注意，将 q 去除，或将 i 和 j 视作同一字  </li>
-<li>将要加密的明文分成两个一组。若组内的字母相同，将 X（或 Q）加到该组的第一个字母后，重新分组。若剩下一个字，也加入 X  </li>
-<li>在每组中，找出两个字母在矩阵中的地方。  <ul>
-<li>若两个字母不同行也不同列，在矩阵中找出另外两个字母（第一个字母对应行优先），使这四个字母成为一个长方形的四个角  </li>
-<li>若两个字母同行，取这两个字母右方的字母（若字母在最右方则取最左方的字母）  </li>
-<li>若两个字母同列，取这两个字母下方的字母（若字母在最下方则取最上方的字母）新找到的两个字母就是原本的两个字母加密的结果。  </li>
-</ul>
-</li>
-</ol>
-
-          
+          <p>二话不说，直接开干</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/11/密码学习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1825,12 +1760,6 @@ drop database [name]; //删除数据库
     </span>
   
 
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
   
 </div>
 
